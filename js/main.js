@@ -43,9 +43,10 @@ function showNumberGame() {
 function showGameType($showDiv, $hideDiv) {
 	$("#starterText").hide();
 	
-	if ($showDiv.contents().length == 0) {
+	// uncomment to let users pick up where they left off in the other game
+	//if ($showDiv.contents().length == 0) {
 		generateGameTypeContent($showDiv);
-	}
+	//}
 	
 	$showDiv.show();
 	$hideDiv.hide();
@@ -54,6 +55,9 @@ function showGameType($showDiv, $hideDiv) {
 
 // -- generate content for the game types --
 function generateGameTypeContent($gameDiv) {
+	clearInterval(numberTimer);
+	clearInterval(wordTimer);
+	
 	var divId = $gameDiv.attr("id");
 	var func;
 	if (divId == "wordGameDiv") {

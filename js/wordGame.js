@@ -2,6 +2,7 @@ var vowelArray = ['A', 'E', 'I', 'O', 'U'];
 var consonantArray = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'];
 var numberOfLetters = 10;
 var wordGameAnagram = "";
+var wordTimer;
 
 function generateWordGameContent() {
 	var $container = $("#wordGameDiv");
@@ -83,7 +84,7 @@ function createAnagramPage() {
 			"<span id='timer'>" + timerSeconds + "</span>"+
 		"</div>");
 	
-	var timer = startTimer();
+	wordTimer = startTimer();
 	
 	$okWordButton.off().on("click", function() {
 		stopTimer();
@@ -105,7 +106,7 @@ function createAnagramPage() {
 		return timer;
 	}
 	function stopTimer() {
-		clearInterval(timer);
+		clearInterval(wordTimer);
 		processWordAnswer();
 	}
 }

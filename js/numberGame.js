@@ -1,5 +1,6 @@
 var largeNumberSet = [25, 50, 75, 100];
 var smallNumberSet = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
+var numberTimer;
 
 function generateNumberGameContent() {
 	var $container = $("#numberGameDiv");
@@ -92,7 +93,7 @@ function submitChosenTiles() {
 		$select.prop("disabled", !($select.is(":disabled")));
 	});
 	
-	var timer = startTimer();
+	numberTimer = startTimer();
 	
 	$("#okNumberButton").off().on("click", function() {
 		stopTimer();
@@ -114,7 +115,7 @@ function submitChosenTiles() {
 		return timer;
 	}
 	function stopTimer() {
-		clearInterval(timer);
+		clearInterval(numberTimer);
 		processNumberAnswer();
 	}
 }
