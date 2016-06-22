@@ -13,7 +13,7 @@ function startNewNumberGame() {
 	
 	var $numberTileDiv = $("<div id='numberTiles'></div>");
 	$container.append($numberTileDiv);
-	$container.append("<span id='instruction' style='display: block;'>Choose six tiles</span>");
+	$container.append("<span id='numberInstruction' style='display: block;'>Choose six tiles</span>");
 	
 	{
 		var chosenIndexesMap = {};
@@ -30,7 +30,7 @@ function startNewNumberGame() {
 		}
 	}
 	
-	$container.append("<button id='okButton'>OK</button>");
+	$container.append("<button id='okNumberButton'>OK</button>");
 	
 	$(".card").off().on("click", function() {
 		if ($(".cardSelected").length < 6)
@@ -39,10 +39,11 @@ function startNewNumberGame() {
 			$(this).removeClass("cardSelected");
 	});
 	
-	$("#okButton").off().on("click", function() {
+	$("#okNumberButton").off().on("click", function() {
+		console.log("3");
 		if ($(".cardSelected").length != 6) {
-			var $instruction = $("#instruction");
-			$instruction.text("Please choose six tiles!");
+			var $numberInstruction = $("#numberInstruction");
+			$numberInstruction.text("Please choose six tiles!");
 			// TODO: error colour-flashing animation effect for this error
 		} else {
 			submitChosenTiles();
@@ -60,8 +61,8 @@ function submitChosenTiles() {
 	var $container = $("#numberGameDiv");
 	var $numberTileDiv = $("#numberTiles");
 	
-	var $instruction = $("#instruction");
-	$instruction.text("Get as close to the target as you can!");
+	var $numberInstruction = $("#numberInstruction");
+	$numberInstruction.text("Get as close to the target as you can!");
 	
 	$numberTileDiv.append(
 		"<div style='margin: 1em;'>Target: "+
@@ -87,7 +88,8 @@ function submitChosenTiles() {
 	
 	var timer = startTimer();
 	
-	$("#okButton").off().on("click", function() {
+	$("#okNumberButton").off().on("click", function() {
+		console.log("4");
 		stopTimer();
 	});
 	
@@ -179,8 +181,9 @@ function displayAnswer(answer) {
 		pointsAwarded + " points awarded!"+
 		"<br>"+
 		"Your score is now " + totalScore);
-	$("#instruction").text("Would you like to play again?");
-	$("#okButton").off().on("click", function() {
+	$("#numberInstruction").text("Would you like to play again?");
+	$("#okNumberButton").off().on("click", function() {
+		console.log("5");
 		startNewNumberGame();
 	});
 }

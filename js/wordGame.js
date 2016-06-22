@@ -19,7 +19,7 @@ function startNewWordGame() {
 	var $letterTileHoldingDiv = $("<div id='tileHolder' style='margin: .5em;'></div>");
 	$letterTilesDiv.append($letterTileHoldingDiv);
 	
-	var $instructionSpan = $("<span id='instruction'>Fill the boxes with letters!  Choose 'vowel' or 'consonant' to get a random letter.</span>");
+	var $instructionSpan = $("<span id='wordInstruction' style='display: block;'>Fill the boxes with letters!  Choose 'vowel' or 'consonant' to get a random letter.</span>");
 	$container.append($instructionSpan);
 	
 	for (var i=0; i<numberOfLetters; i++) {
@@ -53,7 +53,7 @@ function createAnagramPage() {
 	
 	$("#vowelButton").remove()
 	$("#consonantButton").remove();
-	$("#instruction").text("Click the letters to create an anagram in the blue box!");
+	$("#wordInstruction").text("Click the letters to create an anagram in the blue box!");
 	
 	var $anagramDiv = $("<div id='anagram' style='min-height: 4em;'></div>");
 	$letterTilesDiv.append($anagramDiv);
@@ -68,8 +68,8 @@ function createAnagramPage() {
 		}
 	});
 	
-	var $okButton = $("<button id='okButton'>OK</button>");
-	$container.append($okButton);
+	var $okWordButton = $("<button id='okWordButton'>OK</button>");
+	$container.append($okWordButton);
 	
 	$letterTilesDiv.append(
 		"<div>"+
@@ -78,7 +78,8 @@ function createAnagramPage() {
 	
 	var timer = startTimer();
 	
-	$okButton.on("click", function() {
+	$okWordButton.off().on("click", function() {
+		console.log("2");
 		stopTimer();
 	});
 	
@@ -138,8 +139,9 @@ function checkDictionaryResponse(response) {
 	$letterTilesDiv.append("<br>"+
 		"Your score is now " + totalScore);
 	
-	$("#instruction").text("Would you like to play again?");
-	$("#okButton").off().on("click", function() {
+	$("#wordInstruction").text("Would you like to play again?");
+	$("#okWordButton").off().on("click", function() {
+		console.log("1");
 		startNewWordGame();
 	});
 }
