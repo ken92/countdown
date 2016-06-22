@@ -79,7 +79,6 @@ function createAnagramPage() {
 	var timer = startTimer();
 	
 	$okWordButton.off().on("click", function() {
-		console.log("2");
 		stopTimer();
 	});
 	
@@ -141,7 +140,6 @@ function checkDictionaryResponse(response) {
 	
 	$("#wordInstruction").text("Would you like to play again?");
 	$("#okWordButton").off().on("click", function() {
-		console.log("1");
 		startNewWordGame();
 	});
 }

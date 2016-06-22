@@ -40,7 +40,6 @@ function startNewNumberGame() {
 	});
 	
 	$("#okNumberButton").off().on("click", function() {
-		console.log("3");
 		if ($(".cardSelected").length != 6) {
 			var $numberInstruction = $("#numberInstruction");
 			$numberInstruction.text("Please choose six tiles!");
@@ -89,7 +88,6 @@ function submitChosenTiles() {
 	var timer = startTimer();
 	
 	$("#okNumberButton").off().on("click", function() {
-		console.log("4");
 		stopTimer();
 	});
 	
@@ -183,7 +181,6 @@ function displayAnswer(answer) {
 		"Your score is now " + totalScore);
 	$("#numberInstruction").text("Would you like to play again?");
 	$("#okNumberButton").off().on("click", function() {
-		console.log("5");
 		startNewNumberGame();
 	});
 }
