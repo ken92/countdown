@@ -1,0 +1,78 @@
+div.centerDiv {
+	width: 100%;
+	text-align: center;
+}
+
+#buttonArea {
+	text-align: center;
+	margin: 2em 6em;
+	padding: 1em;
+	-webkit-border-radius: 11px / 16px;
+	border-radius: 11px / 16px;
+	background: #d0eaf4;
+	-webkit-box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3);
+	box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+button {
+	margin: .5em;
+}
+
+#numberTiles {
+	margin: 1em;
+}
+
+#anagram, .card {
+	-webkit-border-radius: 6px / 8px;
+	border-radius: 6px / 8px;
+	background: #d0eaf4;
+}
+
+.card {
+	vertical-align: top;
+	width: 2em;
+	padding: 1em;
+	margin: .2em;
+	display: inline-block;
+	text-align: center;
+	color: white;
+	background-position: 50% 50%;
+	
+	-webkit-background-origin: padding-box;
+	background-origin: padding-box;
+	-webkit-background-clip: border-box;
+	background-clip: border-box;
+	-webkit-background-size: auto auto;
+	background-size: auto auto;
+	
+	-webkit-box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
+	box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+	
+	opacity: 1;
+}
+
+.card {
+	background: -webkit-linear-gradient(-240.56505117709997deg, rgba(9,59,158,1) 0, rgba(142,151,237,1) 100%);
+	background: -moz-linear-gradient(330.5650511771deg, rgba(9,59,158,1) 0, rgba(142,151,237,1) 100%);
+	background: linear-gradient(330.5650511771deg, rgba(9,59,158,1) 0, rgba(142,151,237,1) 100%);
+}
+
+.cardSelected {
+	background: -webkit-linear-gradient(-240.56505117709997deg, rgba(9,155,75,1) 0, rgba(140,234,201,1) 100%);
+	background: -moz-linear-gradient(330.5650511771deg, rgba(9,155,75,1) 0, rgba(140,234,201,1) 100%);
+	background: linear-gradient(330.5650511771deg, rgba(9,155,75,1) 0, rgba(140,234,201,1) 100%);
+}
+
+.transparent {
+	opacity: .2;
+}
+
+#target {
+	color: red;
+	font-weight: bold;
+}
+
+
+
