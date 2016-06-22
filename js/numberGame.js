@@ -204,6 +204,12 @@ function displayAnswer(answer) {
 		pointsAwarded = 1;
 	totalScore += pointsAwarded;
 	
+	// display the numbers nicely
+	if (answer % 1 != 0)
+		answer = answer.toFixed(2);
+	if (difference % 1 != 0)
+		difference = difference.toFixed(2);
+	
 	$numberTileDiv.empty().append("Target: <span id='target'>" + target + "</span>"+
 		"<br>"+
 		"Your answer: " + answer +
