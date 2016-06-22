@@ -4,24 +4,24 @@ var numberTimer;
 
 function generateNumberGameContent() {
 	var $container = $("#numberGameDiv");
-	$container.empty().append("<div style='text-align: left;'>This game is a tricky math logic problem.  You will be presented with 24 randomized tiles; the tiles are made up of 1-10 twice, 25, 50, 75 and 100.  You will pick six of them and then be presented with the numbers you chose and a target value.  Your goal is to calculate an answer as close to the target as possible, using only the four basic arithmetic operations: addition, subtraction, multiplication and division.  Clicking on a number will remove it from the calculation.</div>"+
+	$container.empty().append("<div style='text-align: left; margin-bottom: 1em;'>This game is a tricky math logic problem.  You will be presented with 24 randomized tiles; the tiles are made up of 1-10 twice, 25, 50, 75 and 100.  You will pick six of them and then be presented with the numbers you chose and a target value.  Your goal is to calculate an answer as close to the target as possible, using only the four basic arithmetic operations: addition, subtraction, multiplication, and division.  Clicking on a number will remove it from the calculation.</div>"+
 	
 	"<div style='text-align: left;'>"+
 		"The scoring system is as follows:"+
 		"<ul>"+
-			"<li>Absolute value(target - your answer) == 0"+
+			"<li>If you hit the target:"+
 				"<ul>20 points</ul>"+
 			"</li>"+
-			"<li>0 < Absolute value(target - your answer) <= 5"+
+			"<li>If the distance of your answer to the target is greater than 0 and less than or equal to 5:"+
 				"<ul>15 points</ul>"+
 			"</li>"+
-			"<li>5 < Absolute value(target - your answer) <= 10"+
+			"<li>If the distance of your answer to the target is greater than 5 and less than or equal to 10:"+
 				"<ul>10 points</ul>"+
 			"</li>"+
-			"<li>10 < Absolute value(target - your answer) <= 20"+
+			"<li>If the distance of your answer to the target is greater than 10 and less than or equal to 20:"+
 				"<ul>5 points</ul>"+
 			"</li>"+
-			"<li>20 < Absolute value(target - your answer) <= 30"+
+			"<li>If the distance of your answer to the target is greater than 20 and less than or equal to 30:"+
 				"<ul>1 point</ul>"+
 			"</li>"+
 		"</ul>"+
