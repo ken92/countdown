@@ -4,9 +4,16 @@ var numberOfLetters = 10;
 var wordGameAnagram = "";
 
 function generateWordGameContent() {
-	// TODO: add instructions for how to play
-	// http://datagenetics.com/blog/august32014/index.html
-	startNewWordGame();
+	var $container = $("#wordGameDiv");
+	$container.empty().append("<div>This game is essentially randomized Scrabble; you will be presented with " + numberOfLetters + " empty tiles that you will fill with either a vowel or a consonant each.  After all of the tiles have been filled, you will have to create a word from any number of them.  The longer your word is, the more points you get!</div>"+
+	"<span style='display: block;'>Are you ready?</span>");
+	
+	var $okWordButton = $("<button id='okWordButton'>OK</button>");
+	$container.append($okWordButton);
+	
+	$okWordButton.on("click", function() {
+		startNewWordGame();
+	});
 }
 
 function startNewWordGame() {

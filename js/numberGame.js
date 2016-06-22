@@ -2,9 +2,16 @@ var largeNumberSet = [25, 50, 75, 100];
 var smallNumberSet = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
 
 function generateNumberGameContent() {
-	// TODO: add instructions for how to play
-	// http://datagenetics.com/blog/august32014/index.html
-	startNewNumberGame();
+	var $container = $("#numberGameDiv");
+	$container.empty().append("<div>This game is a tricky math logic problem.  You will be presented with 24 randomized tiles; the tiles are made up of 1-10 twice, 25, 50, 75 and 100.  You will pick six of them and then be presented with the numbers you chose and a target value.  Your goal is to calculate an answer as close to the target as possible, using only the four basic arithmetic operations: addition, subtraction, multiplication and division.</div>"+
+	"<span style='display: block;'>Are you ready?</span>");
+	
+	var $okNumberButton = $("<button id='okNumberButton'>OK</button>");
+	$container.append($okNumberButton);
+	
+	$okNumberButton.on("click", function() {
+		startNewNumberGame();
+	});
 }
 
 function startNewNumberGame() {
