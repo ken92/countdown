@@ -4,7 +4,29 @@ var numberTimer;
 
 function generateNumberGameContent() {
 	var $container = $("#numberGameDiv");
-	$container.empty().append("<div>This game is a tricky math logic problem.  You will be presented with 24 randomized tiles; the tiles are made up of 1-10 twice, 25, 50, 75 and 100.  You will pick six of them and then be presented with the numbers you chose and a target value.  Your goal is to calculate an answer as close to the target as possible, using only the four basic arithmetic operations: addition, subtraction, multiplication and division.</div>"+
+	$container.empty().append("<div style='text-align: left;'>This game is a tricky math logic problem.  You will be presented with 24 randomized tiles; the tiles are made up of 1-10 twice, 25, 50, 75 and 100.  You will pick six of them and then be presented with the numbers you chose and a target value.  Your goal is to calculate an answer as close to the target as possible, using only the four basic arithmetic operations: addition, subtraction, multiplication and division.  Clicking on a number will remove it from the calculation.</div>"+
+	
+	"<div style='text-align: left;'>"+
+		"The scoring system is as follows:"+
+		"<ul>"+
+			"<li>Absolute value(target - your answer) == 0"+
+				"<ul>20 points</ul>"+
+			"</li>"+
+			"<li>0 < Absolute value(target - your answer) <= 5"+
+				"<ul>15 points</ul>"+
+			"</li>"+
+			"<li>5 < Absolute value(target - your answer) <= 10"+
+				"<ul>10 points</ul>"+
+			"</li>"+
+			"<li>10 < Absolute value(target - your answer) <= 20"+
+				"<ul>5 points</ul>"+
+			"</li>"+
+			"<li>20 < Absolute value(target - your answer) <= 30"+
+				"<ul>1 point</ul>"+
+			"</li>"+
+		"</ul>"+
+	"</div>"+
+	
 	"<span style='display: block;'>Are you ready?</span>");
 	
 	var $okNumberButton = $("<button id='okNumberButton'>OK</button>");
@@ -171,11 +193,15 @@ function displayAnswer(answer) {
 	var difference = Math.abs(target - answer);
 	var pointsAwarded = 0;
 	if (difference == 0)
-		pointsAwarded = 10;
+		pointsAwarded = 20;
 	else if (difference <= 5)
-		pointsAwarded = 7;
+		pointsAwarded = 15;
 	else if (difference <= 10)
+		pointsAwarded = 10;
+	else if (difference <= 20)
 		pointsAwarded = 5;
+	else if (difference <= 30)
+		pointsAwarded = 1;
 	totalScore += pointsAwarded;
 	
 	$numberTileDiv.empty().append("Target: <span id='target'>" + target + "</span>"+
@@ -184,7 +210,7 @@ function displayAnswer(answer) {
 		"<br><br>"+
 		"Difference: " + difference +
 		"<br>"+
-		pointsAwarded + " points awarded!"+
+		pointsAwarded + " point"+(pointsAwarded == 1 ? "" : "s")+" awarded!"+
 		"<br>"+
 		"Your score is now " + totalScore);
 	$("#numberInstruction").text("Would you like to play again?");
